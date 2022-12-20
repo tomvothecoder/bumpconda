@@ -1,0 +1,38 @@
+# A conda development environment with all dependencies, including optional and documentation dependencies.
+name: condabump_dev
+channels:
+    - conda-forge
+    - defaults
+dependencies:
+    # ==================
+    # Base
+    # ==================
+    # NOTE: If versions are updated, also `additional_dependencies` list for mypy in `.pre-commit-config.yaml`
+    - python=3.10.8
+    - pip=22.3.1
+    - pandas=1.5.2
+    - requests-html=0.10.0
+    - pyyaml=6.0
+    # ==================
+    # Quality Assurance
+    # ==================
+    # NOTE: If versions are updated, also update 'rev' in `.pre-commit.config.yaml`
+    - black=22.10.0
+    - flake8=5.0.4
+    - flake8-isort=5.0.0
+    - isort=5.10.1
+    - mypy=0.990
+    - pre-commit=2.20.0
+    # ==================
+    # Testing
+    # ==================
+    - pytest=7.2.0
+    - pytest-cov=4.0.0
+    # ==================
+    # Developer Tools
+    # ==================
+    - tbump=6.9.0
+    - ipykernel
+    - pip:
+          - ruyaml=0.17.21
+prefix: /opt/miniconda3/envs/condabump_dev
