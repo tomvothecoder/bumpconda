@@ -1,17 +1,17 @@
-"""Console script for condabump."""
+"""Console script for bumpconda."""
 import argparse
 import sys
 
 
 def main():
-    """Console script for condabump."""
+    """Console script for bumpconda."""
     parser = argparse.ArgumentParser()
     parser.add_argument('_', nargs='*')
     args = parser.parse_args()
 
     print("Arguments: " + str(args._))
     print("Replace this message by putting your code into "
-          "condabump.cli.main")
+          "bumpconda.cli.main")
     return 0
 
 

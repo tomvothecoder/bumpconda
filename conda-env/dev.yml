@@ -1,5 +1,5 @@
 # A conda development environment with all dependencies, including optional and documentation dependencies.
-name: condabump_dev
+name: bumpconda_dev
 channels:
     - conda-forge
     - defaults
@@ -35,4 +35,4 @@ dependencies:
     - ipykernel
     - pip:
           - ruyaml=0.17.21
-prefix: /opt/miniconda3/envs/condabump_dev
+prefix: /opt/miniconda3/envs/bumpconda_dev

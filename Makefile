@@ -48,9 +48,9 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 lint/flake8: ## check style with flake8
-	flake8 condabump tests
+	flake8 bumpconda tests
 lint/black: ## check style with black
-	black --check condabump tests
+	black --check bumpconda tests
 
 lint: lint/flake8 lint/black ## check style
 
@@ -61,15 +61,15 @@ test-all: ## run tests on every Python version with tox
 	tox
 
 coverage: ## check code coverage quickly with the default Python
-	coverage run --source condabump -m pytest
+	coverage run --source bumpconda -m pytest
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html
 
 docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/condabump.rst
+	rm -f docs/bumpconda.rst
 	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ condabump
+	sphinx-apidoc -o docs/ bumpconda
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	$(BROWSER) docs/_build/html/index.html

@@ -2,6 +2,6 @@
 Usage
 =====
 
-To use condabump in a project::
+To use bumpconda in a project::
 
-    import condabump
+    import bumpconda

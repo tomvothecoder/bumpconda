@@ -1,1 +1,1 @@
-"""Unit test package for condabump."""
+"""Unit test package for bumpconda."""

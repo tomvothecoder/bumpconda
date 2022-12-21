@@ -1,4 +1,4 @@
-Welcome to condabump's documentation!
+Welcome to bumpconda's documentation!
 ======================================
 
 .. toctree::

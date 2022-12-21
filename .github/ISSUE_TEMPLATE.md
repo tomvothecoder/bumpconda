@@ -1,6 +1,6 @@
-* condabump version:
-* Python version:
-* Operating System:
+-   bumpconda version:
+-   Python version:
+-   Operating System:
 
 ### Description
 

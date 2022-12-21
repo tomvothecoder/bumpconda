@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-"""Tests for `condabump` package."""
+"""Tests for `bumpconda` package."""
 
 import pytest
 
 
-from condabump import condabump
+from bumpconda import bumpconda
 
 
 @pytest.fixture
