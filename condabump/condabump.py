@@ -18,7 +18,7 @@ BASE_URL = "https://anaconda.org/conda-forge"
 # Files and packages to omit from being updated.
 OMIT_FILES = ["./conda-env/ci.yml"]
 OMIT_PACKAGES = ["numba", "numpy"]
-
+CONDA_ENV_DIR = "/home/vo13/E3SM-Project/e3sm_diags/conda-env/"
 
 #%%
 def read_yaml_file(filename):
@@ -43,7 +43,7 @@ def get_latest_version(dep: str) -> str:
 # and the value as the contents.
 # FIXME: pyyaml does not preserve comments
 env_files: Dict[str, Dict[str, str]] = {
-    path: {} for path in glob.glob("./conda-env/*.yml") if path not in OMIT_FILES
+    path: {} for path in glob.glob(f"{CONDA_ENV_DIR}*.yml") if path not in OMIT_FILES
 }
 
 for filepath in env_files:
@@ -53,7 +53,17 @@ for filepath in env_files:
 # Update the dependencies in each file.
 for filepath, contents in env_files.items():
     for index, dep in enumerate(contents["dependencies"]):
-        dep = dep.split("=")[0]
+        if isinstance(dep, str):
+            dep = dep.strip()
+
+            if ">=" in dep:
+                dep = dep.split(">=")[0]
+            elif "=" in dep:
+                dep = dep.split("=")[0]
+            elif ">" in dep:
+                dep = dep.split(">")[0]
+        else:
+            continue
 
         if dep not in OMIT_PACKAGES:
             version = get_latest_version(dep)
@@ -64,3 +74,5 @@ for filepath, contents in env_files.items():
 for filepath, contents in env_files.items():
     with open(filepath, "w") as file:
         file.write(yaml.dump(contents, default_flow_style=False))
+
+# %%
